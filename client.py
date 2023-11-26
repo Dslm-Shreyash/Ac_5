@@ -27,17 +27,19 @@ if joh == 1:
     
     
     while True :
-        responce = input("\nYou : ").encode()
+        responce = input("\nYou : ")
         m5_ha = ae.md5(responce)
         
-        co.send(responce)
+        co.send(responce.encode())
         co.send(m5_ha)
-        print(f'" {responce.decode()} " Is Hashed To : {m5_ha} \n')
+        print(f'" {responce} " Is Hashed To : {m5_ha.decode()} \n')
 
         responce = co.recv(1024)
         m5_ha = co.recv(1024)
-        print(f"Received  Text From ' {client_name} ' Is : ",responce)
-        print(f"MD5 Hash Recived From ' {client_name} ' Is : ",m5_ha)
+        print(f"Received  Text From ' {client_name} ' Is : ",responce.decode())
+        print(f"MD5 Hash Recived From ' {client_name} ' Is : ",m5_ha.decode())
+        rv_hash = ae.md5(responce.decode())
+        print(f"MD5 Hash of Text '{responce.decode()}' Recived From ' {client_name} ' Is : ",rv_hash.decode())
         
 else:
      name = input("Enter Your Name : ")
@@ -54,12 +56,14 @@ else:
          
          responce = s.recv(1024)
          m5_ha = s.recv(1024)
-         print(f"Received  Text From ' {client_name} ' Is : ",responce)
-         print(f"MD5 Recived From ' {client_name} ' Is : ",m5_ha)
+         print(f"Received  Text From ' {client_name} ' Is : ",responce.decode())
+         print(f"MD5 Recived From ' {client_name} ' Is : ",m5_ha.decode())
+         rv_hash = ae.md5(responce.decode())
+         print(f"MD5 Hash of Text '{responce.decode()}' Recived From ' {client_name} ' Is : ",rv_hash.decode())
          
-         responce = input("\nYou : ").encode()
-         m5_ha - ae.md5(responce)
-         s.send(responce)
+         responce = input("\nYou : ")
+         m5_ha = ae.md5(responce)
+         s.send(responce.encode())
          s.send(m5_ha)
-         print(f'" {responce.decode()} " Is Hashed To : {m5_ha} \n')
+         print(f'" {responce} " Is Hashed To : {m5_ha.decode()} \n')
          

@@ -8,7 +8,7 @@ key = get_random_bytes(16)
 
 def md5(text):
     ho = hashlib.md5(text.encode()).hexdigest()
-    return ho
+    return ho.encode()
 
 def AES_Encrypt(msg):
     ecip = AES.new(key,AES.MODE_EAX)
