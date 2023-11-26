@@ -10,6 +10,12 @@ def md5(text):
     ho = hashlib.md5(text.encode()).hexdigest()
     return ho.encode()
 
+def md5_check(x_hash,y_hash):
+    if x_hash == y_hash :
+        print("MD5 Hash has been Matched...")
+    else:
+        print("MD5 Hash has not been Matched !!!")
+
 def AES_Encrypt(msg):
     ecip = AES.new(key,AES.MODE_EAX)
     nonce = ecip.nonce
