@@ -25,7 +25,6 @@ if joh == 1:
     client_name = co.recv(1024).decode()
     print(f'{client_name} Has Joined')
     
-    
     while True :
         responce = input("\nYou : ")
         m5_ha = ae.md5(responce)
