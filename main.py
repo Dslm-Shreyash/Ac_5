@@ -36,7 +36,7 @@ if joh == 1:
 
         responce = co.recv(1024)
         m5_ha = co.recv(1024)
-        print(f"Received  Text From ' {client_name} ' Is : ",responce.decode())
+        print(f"Received Text From ' {client_name} ' Is : ",responce.decode())
         print(f"MD5 Hash Recived From ' {client_name} ' Is : ",m5_ha.decode())
         rv_hash = ae.md5(responce.decode())
         print(f"MD5 Hash of Text '{responce.decode()}' Recived From ' {client_name} ' Is : ",rv_hash.decode())
