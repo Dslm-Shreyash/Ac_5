@@ -1,9 +1,14 @@
 from Crypto.Cipher import AES
 from Crypto.Random import get_random_bytes
 import rsa
+import hashlib
 # key = b'\x10/\xce\xd1\x87BP\x81\x9b\x0e(\xa5\x99g\xd4\x8f'
 key = get_random_bytes(16)
 # key = b"This is the keyy"
+
+def md5(text):
+    ho = hashlib.md5(text.encode()).hexdigest()
+    return ho
 
 def AES_Encrypt(msg):
     ecip = AES.new(key,AES.MODE_EAX)
