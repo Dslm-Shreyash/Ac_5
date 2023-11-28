@@ -37,8 +37,10 @@ if joh == 1:
         m5_ha = co.recv(1024)
         print(f"Received Text From ' {client_name} ' Is\t : ",responce.decode())
         print(f"MD5 Hash Recived From ' {client_name} ' Is\t : ",m5_ha.decode())
-        rv_hash = ae.md5(responce.decode())
-        print(f"MD5 Hash of Text '{responce.decode()}' Is\t\t : ",rv_hash.decode())
+        responce = responce.decode()
+        rv_hash = ae.md5(responce)
+        print(f"MD5 Hash of Text '{responce}' Is\t\t : ",rv_hash.decode())
+        
         ae.md5_check(m5_ha,rv_hash)
         
 else:
@@ -58,8 +60,9 @@ else:
          m5_ha = s.recv(1024)
          print(f"Received Text From ' {client_name} ' Is\t : ",responce.decode())
          print(f"MD5 Recived From ' {client_name} ' Is\t : ",m5_ha.decode())
-         rv_hash = ae.md5(responce.decode())
-         print(f"MD5 Hash of Text '{responce.decode()}' Is\t\t : ",rv_hash.decode())
+         responce = responce.decode()
+         rv_hash = ae.md5(responce)
+         print(f"MD5 Hash of Text '{responce}' Is\t\t : ",rv_hash.decode())
          ae.md5_check(m5_ha,rv_hash)
          
          responce = input("\nYou : ")
